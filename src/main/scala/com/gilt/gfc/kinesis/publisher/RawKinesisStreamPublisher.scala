@@ -5,7 +5,7 @@ import java.util.concurrent.{Executors, ScheduledExecutorService, TimeUnit}
 
 import com.amazonaws.ClientConfiguration
 import com.amazonaws.handlers.AsyncHandler
-import com.amazonaws.regions.Regions
+import com.amazonaws.regions.{Region, Regions}
 import com.amazonaws.services.kinesis.model.{Record, PutRecordResult, PutRecordRequest}
 import com.amazonaws.services.kinesis.{AmazonKinesisAsync, AmazonKinesisAsyncClient}
 import com.gilt.gfc.kinesis.common.{SequenceNumber, ShardId}
@@ -61,7 +61,7 @@ object RawKinesisStreamPublisher {
       }
 
       val client = new AmazonKinesisAsyncClient(config.awsCredentialsProvider, clientConfig)
-      client.setRegion(Regions.fromName(config.regionName))
+      client.setRegion(Region.getRegion(Regions.fromName(config.regionName)))
       config.kinesisEndpoint.foreach(client.setEndpoint)
       client
     }

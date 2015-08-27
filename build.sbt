@@ -2,13 +2,13 @@ name := "gfc-kinesis"
 
 organization := "com.gilt"
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.11.7"
 
-crossScalaVersions := Seq("2.11.4", "2.10.4")
+crossScalaVersions := Seq("2.11.4", "2.10.4", "2.11.7")
 
 libraryDependencies ++= Seq(
-  "com.amazonaws" % "aws-java-sdk" % "1.9.11",
-  "com.amazonaws" % "amazon-kinesis-client" % "1.2.0",
+  "com.amazonaws" % "aws-java-sdk" % "1.10.13",
+  "com.amazonaws" % "amazon-kinesis-client" % "1.6.0",
   "com.gilt" %% "gfc-logging" % "0.0.2",
   "org.scalatest" %% "scalatest" % "2.2.2" % "test",
   "org.mockito" % "mockito-all" % "1.10.8" % "test"
